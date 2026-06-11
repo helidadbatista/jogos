@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { sons } from '../../../core/sounds.js';
+import { normalizar } from '../../../core/texto.js';
 
 export function useJogoCore({ palavra, dica, maxErros, dicaSempreVisivel }) {
   const [usadas, setUsadas] = useState(() => new Set());
@@ -14,7 +15,7 @@ export function useJogoCore({ palavra, dica, maxErros, dicaSempreVisivel }) {
 
   const letrasDaPalavra = useMemo(() => {
     const s = new Set();
-    for (const c of palavra) if (c !== ' ') s.add(c);
+    for (const c of palavra) if (c !== ' ') s.add(normalizar(c));
     return s;
   }, [palavra]);
 

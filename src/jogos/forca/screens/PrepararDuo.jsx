@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { sons } from '../../../core/sounds.js';
+import { normalizar as normalizarTexto } from '../../../core/texto.js';
 
 function normalizar(texto) {
-  return texto
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .toUpperCase()
+  return normalizarTexto(texto)
     .replace(/[^A-Z ]/g, '')
     .replace(/\s+/g, ' ')
     .replace(/^ +/, '');

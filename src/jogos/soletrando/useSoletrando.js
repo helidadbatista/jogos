@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import palavrasData from '../../core/palavras.json';
 import { escolherVarias } from '../../core/palavrasUsadas.js';
+import { normalizar } from '../../core/texto.js';
 
 const TAMANHO_RODADA = 5;
 
@@ -32,16 +33,14 @@ export function useSoletrando({ idade, dificuldade }) {
 
   function tentar(resposta) {
     if (!atual) return null;
-    const normalizada = (resposta || '')
-      .normalize('NFD')
-      .replace(/[̀-ͯ]/g, '')
-      .toUpperCase()
+    const respostaNorm = normalizar(resposta || '')
       .replace(/[^A-Z ]/g, '')
       .trim();
     const certa = atual.palavra.trim();
-    const acertou = normalizada === certa;
-    setAcertos((a) => [...a, { palavra: certa, resposta: normalizada, acertou }]);
-    setFeedbackUltimo({ acertou, palavra: certa, resposta: normalizada });
+    const certaNorm = normalizar(certa).replace(/[^A-Z ]/g, '').trim();
+    const acertou = respostaNorm === certaNorm;
+    setAcertos((a) => [...a, { palavra: certa, resposta: respostaNorm, acertou }]);
+    setFeedbackUltimo({ acertou, palavra: certa, resposta: respostaNorm });
     return acertou;
   }
 
