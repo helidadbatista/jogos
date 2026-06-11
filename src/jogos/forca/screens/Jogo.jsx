@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Forca from '../components/Forca.jsx';
 import Palavra from '../components/Palavra.jsx';
-import Teclado from '../components/Teclado.jsx';
+import Teclado from '../../../components/Teclado.jsx';
 import Mascote from '../../../components/Mascote.jsx';
 import { useJogo } from '../hooks/useJogo.js';
 import { calcularPontos } from '../../../core/scoring.js';

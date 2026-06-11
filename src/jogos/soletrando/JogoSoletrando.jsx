@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Mascote from '../../components/Mascote.jsx';
+import Teclado from '../../components/Teclado.jsx';
 import { sons } from '../../core/sounds.js';
 import { falar } from '../../core/falar.js';
 import { useSoletrando } from './useSoletrando.js';
@@ -11,7 +12,6 @@ export default function JogoSoletrando({ idade, dificuldade, onVoltar, onFim }) 
   const j = useSoletrando({ idade, dificuldade });
   const [resposta, setResposta] = useState('');
   const [mostrarDica, setMostrarDica] = useState(idade === '4-6');
-  const inputRef = useRef(null);
 
   useEffect(() => {
     if (j.atual) {
@@ -19,7 +19,6 @@ export default function JogoSoletrando({ idade, dificuldade, onVoltar, onFim }) 
       setMostrarDica(idade === '4-6');
       const t = setTimeout(() => {
         falar(j.atual.palavra);
-        inputRef.current?.focus();
       }, 300);
       return () => clearTimeout(t);
     }
@@ -32,14 +31,20 @@ export default function JogoSoletrando({ idade, dificuldade, onVoltar, onFim }) 
     }
   }, [j.fim, j.totalAcertos, j.total, j.acertos, onFim]);
 
-  function ouvir() {
-    sons.clique();
-    falar(j.atual.palavra);
-  }
+  const feedback = j.feedbackUltimo;
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (j.feedbackUltimo) {
+  const adicionarLetra = useCallback((letra) => {
+    if (feedback) return;
+    setResposta((r) => (r.length >= 20 ? r : r + letra));
+  }, [feedback]);
+
+  const apagarLetra = useCallback(() => {
+    if (feedback) return;
+    setResposta((r) => r.slice(0, -1));
+  }, [feedback]);
+
+  function confirmar() {
+    if (feedback) {
       sons.clique();
       j.proxima();
       return;
@@ -50,10 +55,43 @@ export default function JogoSoletrando({ idade, dificuldade, onVoltar, onFim }) 
     else sons.erro();
   }
 
+  useEffect(() => {
+    function onKey(e) {
+      if (feedback) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          confirmar();
+        }
+        return;
+      }
+      if (e.key === 'Backspace') {
+        e.preventDefault();
+        apagarLetra();
+        return;
+      }
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        confirmar();
+        return;
+      }
+      const letra = e.key.toUpperCase();
+      if (/^[A-Z]$/.test(letra)) {
+        adicionarLetra(letra);
+      }
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  });
+
+  function ouvir() {
+    sons.clique();
+    falar(j.atual.palavra);
+  }
+
   if (!j.atual) return null;
 
-  const feedback = j.feedbackUltimo;
   const estadoMascote = feedback ? (feedback.acertou ? 'festa' : 'triste') : 'feliz';
+  const textoExibido = feedback ? feedback.resposta : resposta;
 
   return (
     <div className="tela tela-jogo">
@@ -85,31 +123,31 @@ export default function JogoSoletrando({ idade, dificuldade, onVoltar, onFim }) 
         </div>
       </div>
 
-      <form className="form-soletrando" onSubmit={handleSubmit}>
-        <input
-          ref={inputRef}
-          type="text"
-          className="input-grande input-soletrando"
-          value={feedback ? feedback.resposta : resposta}
-          onChange={(e) => setResposta(e.target.value)}
-          placeholder="Escreva aqui..."
-          autoFocus
-          disabled={!!feedback}
-          maxLength={20}
-        />
-        {feedback ? (
-          <div className={`feedback ${feedback.acertou ? 'feedback-acerto' : 'feedback-erro'}`}>
-            {feedback.acertou ? (
-              <>🎉 Mandou bem! A palavra é <strong>{feedback.palavra}</strong></>
-            ) : (
-              <>🌱 A palavra certa era <strong>{feedback.palavra}</strong></>
-            )}
-          </div>
-        ) : null}
-        <button type="submit" className="botao-principal">
-          {feedback ? 'Próxima ➜' : 'Confirmar'}
-        </button>
-      </form>
+      <div className={`visor-soletrando ${feedback ? (feedback.acertou ? 'visor-acerto' : 'visor-erro') : ''}`} aria-label="resposta">
+        {textoExibido || <span className="visor-placeholder">Use o teclado abaixo</span>}
+        {!feedback && textoExibido && <span className="cursor-piscante" />}
+      </div>
+
+      {feedback && (
+        <div className={`feedback ${feedback.acertou ? 'feedback-acerto' : 'feedback-erro'}`}>
+          {feedback.acertou ? (
+            <>🎉 Mandou bem! A palavra é <strong>{feedback.palavra}</strong></>
+          ) : (
+            <>🌱 A palavra certa era <strong>{feedback.palavra}</strong></>
+          )}
+        </div>
+      )}
+
+      <Teclado
+        modoLivre
+        onLetra={adicionarLetra}
+        onApagar={apagarLetra}
+        desativado={!!feedback}
+      />
+
+      <button type="button" className="botao-principal" onClick={confirmar}>
+        {feedback ? 'Próxima ➜' : 'Confirmar'}
+      </button>
     </div>
   );
 }

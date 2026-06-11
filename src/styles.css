@@ -551,6 +551,51 @@ body.calmo .tela { animation: none !important; }
   width: 100%;
   font-family: 'Atkinson Hyperlegible', 'Comic Sans MS', system-ui, sans-serif;
 }
+
+.visor-soletrando {
+  min-height: 56px;
+  width: 100%;
+  background: white;
+  border: 3px solid var(--azul);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-family: 'Atkinson Hyperlegible', 'Comic Sans MS', system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-align: center;
+  color: var(--azul-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra);
+  word-break: break-word;
+  text-transform: uppercase;
+}
+.visor-acerto { border-color: var(--verde); background: #ecfdf5; color: #047857; }
+.visor-erro { border-color: var(--vermelho); background: #fef2f2; color: #b91c1c; }
+.visor-placeholder {
+  color: #9ca3af;
+  font-weight: normal;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: none;
+}
+.cursor-piscante {
+  display: inline-block;
+  width: 3px;
+  height: 28px;
+  background: var(--azul);
+  margin-left: 2px;
+  animation: piscar 1s infinite;
+  vertical-align: middle;
+}
+@keyframes piscar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.tecla-apagar { background: #fed7aa; color: #9a3412; font-size: 16px; flex: 0 0 56px; }
 .feedback, .resumo-palavra, .resumo-resposta {
   font-family: 'Atkinson Hyperlegible', 'Comic Sans MS', system-ui, sans-serif;
 }
