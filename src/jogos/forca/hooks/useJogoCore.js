@@ -2,16 +2,18 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { sons } from '../../../core/sounds.js';
 import { normalizar } from '../../../core/texto.js';
 
-export function useJogoCore({ palavra, dica, maxErros, dicaSempreVisivel }) {
+export function useJogoCore({ palavra, dicas, maxErros, dicaSempreVisivel }) {
+  const dicasArr = useMemo(() => Array.isArray(dicas) ? dicas.filter(Boolean) : (dicas ? [dicas] : []), [dicas]);
+  const inicialReveladas = dicaSempreVisivel ? Math.min(1, dicasArr.length) : 0;
   const [usadas, setUsadas] = useState(() => new Set());
   const [erros, setErros] = useState(0);
-  const [dicaPedida, setDicaPedida] = useState(dicaSempreVisivel);
+  const [dicasReveladas, setDicasReveladas] = useState(inicialReveladas);
 
   useEffect(() => {
     setUsadas(new Set());
     setErros(0);
-    setDicaPedida(dicaSempreVisivel);
-  }, [palavra, dicaSempreVisivel]);
+    setDicasReveladas(dicaSempreVisivel ? Math.min(1, dicasArr.length) : 0);
+  }, [palavra, dicaSempreVisivel, dicasArr.length]);
 
   const letrasDaPalavra = useMemo(() => {
     const s = new Set();
@@ -46,16 +48,27 @@ export function useJogoCore({ palavra, dica, maxErros, dicaSempreVisivel }) {
     [fim, usadas, letrasDaPalavra]
   );
 
+  const dicasVisiveis = useMemo(() => {
+    if (dicasArr.length === 0) return [];
+    if (dicaSempreVisivel) {
+      return dicasArr.slice(-1);
+    }
+    return dicasArr.slice(0, dicasReveladas);
+  }, [dicasArr, dicasReveladas, dicaSempreVisivel]);
+
+  const podePedirDica = !dicaSempreVisivel && dicasReveladas < dicasArr.length && !fim;
+  const dicaAtualNumero = dicasReveladas;
+
   const pedirDica = useCallback(
     ({ custaTentativa = true } = {}) => {
-      if (dicaPedida || fim || !dica) return;
+      if (!podePedirDica) return;
       sons.dica();
-      setDicaPedida(true);
-      if (custaTentativa && !dicaSempreVisivel) {
+      setDicasReveladas((n) => n + 1);
+      if (custaTentativa) {
         setErros((e) => Math.min(maxErros, e + 1));
       }
     },
-    [dicaPedida, fim, dica, dicaSempreVisivel, maxErros]
+    [podePedirDica, maxErros]
   );
 
   useEffect(() => {
@@ -65,8 +78,12 @@ export function useJogoCore({ palavra, dica, maxErros, dicaSempreVisivel }) {
 
   return {
     palavra,
-    dica,
-    dicaPedida,
+    dicas: dicasArr,
+    dicasVisiveis,
+    dicasReveladas,
+    totalDicas: dicasArr.length,
+    podePedirDica,
+    dicaAtualNumero,
     dicaSempreVisivel,
     usadas,
     acertadas,

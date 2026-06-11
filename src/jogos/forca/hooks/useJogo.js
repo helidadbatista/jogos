@@ -41,7 +41,7 @@ export function useJogo({ idade, dificuldade }) {
 
   const core = useJogoCore({
     palavra: rodada?.palavra ?? '',
-    dica: rodada?.dica ?? '',
+    dicas: rodada?.dicas ?? (rodada?.dica ? [rodada.dica] : []),
     maxErros,
     dicaSempreVisivel,
   });

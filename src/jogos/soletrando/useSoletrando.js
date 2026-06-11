@@ -57,10 +57,14 @@ export function useSoletrando({ idade, dificuldade }) {
 
   const totalAcertos = acertos.filter((a) => a.acertou).length;
 
+  const dicasArr = Array.isArray(atual?.dicas)
+    ? atual.dicas
+    : (atual?.dica ? [atual.dica] : []);
+
   return {
     palavras,
     atual,
-    dica: atual?.dica,
+    dicas: dicasArr,
     indice,
     total: palavras.length,
     acertos,

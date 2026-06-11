@@ -11,18 +11,21 @@ const ROTULO_IDADE = { '4-6': '🐣 4-6 anos', '7-9': '🐥 7-9 anos', '10-12': 
 export default function JogoSoletrando({ idade, dificuldade, onVoltar, onFim }) {
   const j = useSoletrando({ idade, dificuldade });
   const [resposta, setResposta] = useState('');
-  const [mostrarDica, setMostrarDica] = useState(idade === '4-6');
+  const [dicasReveladas, setDicasReveladas] = useState(0);
+
+  const totalDicas = j.dicas.length;
+  const inicialReveladas = idade === '4-6' ? Math.min(1, totalDicas) : 0;
 
   useEffect(() => {
     if (j.atual) {
       setResposta('');
-      setMostrarDica(idade === '4-6');
+      setDicasReveladas(inicialReveladas);
       const t = setTimeout(() => {
         falar(j.atual.palavra);
       }, 300);
       return () => clearTimeout(t);
     }
-  }, [j.atual, idade]);
+  }, [j.atual, idade, inicialReveladas]);
 
   useEffect(() => {
     if (j.fim) {
@@ -53,6 +56,12 @@ export default function JogoSoletrando({ idade, dificuldade, onVoltar, onFim }) 
     const acertou = j.tentar(resposta);
     if (acertou) sons.acerto();
     else sons.erro();
+  }
+
+  function pedirDica() {
+    if (dicasReveladas >= totalDicas) return;
+    sons.dica();
+    setDicasReveladas((n) => n + 1);
   }
 
   useEffect(() => {
@@ -92,6 +101,10 @@ export default function JogoSoletrando({ idade, dificuldade, onVoltar, onFim }) 
 
   const estadoMascote = feedback ? (feedback.acertou ? 'festa' : 'triste') : 'feliz';
   const textoExibido = feedback ? feedback.resposta : resposta;
+  const dicasParaMostrar = idade === '4-6'
+    ? j.dicas.slice(-1)
+    : j.dicas.slice(0, dicasReveladas);
+  const podePedirDica = idade !== '4-6' && dicasReveladas < totalDicas;
 
   return (
     <div className="tela tela-jogo">
@@ -112,13 +125,17 @@ export default function JogoSoletrando({ idade, dificuldade, onVoltar, onFim }) 
           <button type="button" className="botao-principal" onClick={ouvir}>
             🔊 Ouvir de novo
           </button>
-          {(idade !== '4-6') && !mostrarDica && (
-            <button type="button" className="botao-dica" onClick={() => setMostrarDica(true)}>
-              💡 Ver dica
+          {podePedirDica && (
+            <button type="button" className="botao-dica" onClick={pedirDica}>
+              💡 {dicasReveladas === 0 ? 'Ver dica' : `Mais uma dica (${dicasReveladas + 1}/${totalDicas})`}
             </button>
           )}
-          {mostrarDica && j.dica && (
-            <div className="info-dica">💡 {j.dica}</div>
+          {dicasParaMostrar.length > 0 && (
+            <div className="dicas-lista">
+              {dicasParaMostrar.map((d, i) => (
+                <div key={i} className="info-dica">💡 {d}</div>
+              ))}
+            </div>
           )}
         </div>
       </div>

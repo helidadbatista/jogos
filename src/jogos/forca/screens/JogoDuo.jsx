@@ -10,7 +10,7 @@ import { sons } from '../../../core/sounds.js';
 export default function JogoDuo({ palavra, dica, placar, jogadorAdivinhando, onVoltar, onFim }) {
   const j = useJogoCore({
     palavra,
-    dica,
+    dicas: dica ? [dica] : [],
     maxErros: 6,
     dicaSempreVisivel: false,
   });
@@ -60,8 +60,10 @@ export default function JogoDuo({ palavra, dica, placar, jogadorAdivinhando, onV
           <div className="info-erros">
             Tentativas: <strong>{j.maxErros - j.erros}</strong> / {j.maxErros}
           </div>
-          {j.dica && j.dicaPedida && <div className="info-dica">💡 {j.dica}</div>}
-          {j.dica && !j.dicaPedida && (
+          {j.dicasVisiveis.length > 0 && j.dicasVisiveis.map((d, i) => (
+            <div key={i} className="info-dica">💡 {d}</div>
+          ))}
+          {j.totalDicas > 0 && j.podePedirDica && (
             <button
               className="botao-dica"
               onClick={() => j.pedirDica({ custaTentativa: false })}
@@ -70,7 +72,7 @@ export default function JogoDuo({ palavra, dica, placar, jogadorAdivinhando, onV
               💡 Ver dica do Jogador 1
             </button>
           )}
-          {!j.dica && <div className="info-dica info-sem-dica">Sem dica nessa rodada 🤐</div>}
+          {j.totalDicas === 0 && <div className="info-dica info-sem-dica">Sem dica nessa rodada 🤐</div>}
         </div>
       </div>
 

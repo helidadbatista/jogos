@@ -60,12 +60,16 @@ export default function Jogo({ idade, dificuldade, onVoltar, onFim }) {
           <div className="info-erros">
             Tentativas: <strong>{j.maxErros - j.erros}</strong> / {j.maxErros}
           </div>
-          {(j.dicaSempreVisivel || j.dicaPedida) && (
-            <div className="info-dica">💡 {j.dica}</div>
+          {j.dicasVisiveis.length > 0 && (
+            <div className="dicas-lista">
+              {j.dicasVisiveis.map((d, i) => (
+                <div key={i} className="info-dica">💡 {d}</div>
+              ))}
+            </div>
           )}
-          {!j.dicaSempreVisivel && !j.dicaPedida && (
+          {j.podePedirDica && (
             <button className="botao-dica" onClick={j.pedirDica} disabled={j.fim}>
-              💡 Pedir dica
+              💡 {j.dicaAtualNumero === 0 ? 'Pedir dica' : `Mais uma dica (${j.dicaAtualNumero + 1}/${j.totalDicas})`}
             </button>
           )}
         </div>
