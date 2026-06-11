@@ -1,22 +1,17 @@
-const MULT_IDADE = { '4-6': 1, '7-9': 2, '10-12': 3 };
-const MULT_DIFICULDADE = { facil: 1, medio: 2, dificil: 3 };
+const PONTOS_FORCA = { facil: 2, medio: 5, dificil: 10 };
+const PONTOS_DUO = 5;
+const PONTOS_POR_PALAVRA_SOLETRANDO = 1;
 
-export function calcularPontos({ idade, dificuldade, erros, maxErros, venceu }) {
-  if (!venceu) {
-    return { total: 0, base: 0, multIdade: 0, multDif: 0, bonus: 0, tentativasRestantes: 0 };
-  }
-  const multIdade = MULT_IDADE[idade] ?? 1;
-  const multDif = MULT_DIFICULDADE[dificuldade] ?? 1;
-  const base = 10 * multIdade * multDif;
-  const tentativasRestantes = Math.max(0, maxErros - erros);
-  const bonus = 5 * tentativasRestantes;
-  return { total: base + bonus, base, multIdade, multDif, bonus, tentativasRestantes };
+export function calcularPontos({ dificuldade, venceu }) {
+  if (!venceu) return { total: 0 };
+  return { total: PONTOS_FORCA[dificuldade] ?? 2 };
 }
 
-export function calcularPontosDuo({ erros, maxErros, venceu }) {
-  if (!venceu) return { total: 0, base: 0, bonus: 0, tentativasRestantes: 0 };
-  const base = 30;
-  const tentativasRestantes = Math.max(0, maxErros - erros);
-  const bonus = 5 * tentativasRestantes;
-  return { total: base + bonus, base, bonus, tentativasRestantes };
+export function calcularPontosDuo({ venceu }) {
+  if (!venceu) return { total: 0 };
+  return { total: PONTOS_DUO };
+}
+
+export function calcularPontosSoletrando(acertos) {
+  return acertos * PONTOS_POR_PALAVRA_SOLETRANDO;
 }

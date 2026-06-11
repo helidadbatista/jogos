@@ -15,10 +15,7 @@ export default function FimSoletrando({ acertos, total, acertosLista, pontos, on
 
       {pontos > 0 && (
         <div className="cartao-pontos">
-          <div className="pontos-total">+{pontos} pontos!</div>
-          <div className="pontos-breakdown">
-            <span className="pontos-subtle">{acertos} × pontos por acerto (idade + dificuldade)</span>
-          </div>
+          <div className="pontos-total">+{pontos} {pontos === 1 ? 'ponto' : 'pontos'}!</div>
         </div>
       )}
 
@@ -42,7 +39,7 @@ export default function FimSoletrando({ acertos, total, acertosLista, pontos, on
           🎨 Trocar tema/dificuldade
         </button>
         <button className="botao-secundario" onClick={() => { sons.clique(); onInicio(); }}>
-          🏠 Hub
+          🏠 Início
         </button>
       </div>
     </div>

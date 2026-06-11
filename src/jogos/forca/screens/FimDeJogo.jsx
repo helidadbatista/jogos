@@ -9,19 +9,9 @@ export default function FimDeJogo({ venceu, palavra, pontos, onNovaRodada, onTro
         {venceu ? 'A palavra era:' : 'A palavra era:'} <strong>{palavra}</strong>
       </p>
 
-      {pontos && venceu && (
+      {pontos && venceu && pontos.total > 0 && (
         <div className="cartao-pontos">
-          <div className="pontos-total">+{pontos.total} pontos!</div>
-          <div className="pontos-breakdown">
-            <span>10 base</span>
-            <span>× {pontos.multIdade} idade</span>
-            <span>× {pontos.multDif} dificuldade</span>
-            <span>= {pontos.base}</span>
-          </div>
-          <div className="pontos-breakdown">
-            <span>+ {pontos.bonus} bônus</span>
-            <span className="pontos-subtle">({pontos.tentativasRestantes} tentativas sobrando × 5)</span>
-          </div>
+          <div className="pontos-total">+{pontos.total} {pontos.total === 1 ? 'ponto' : 'pontos'}!</div>
         </div>
       )}
 

@@ -30,7 +30,7 @@ export default function Forca({ idade, onGanharPontos }) {
     return (
       <div className="tela">
         <h1 className="titulo">Defina a idade primeiro</h1>
-        <button className="botao-principal" onClick={irHub}>← Voltar ao Hub</button>
+        <button className="botao-principal" onClick={irHub}>← Voltar ao Início</button>
       </div>
     );
   }

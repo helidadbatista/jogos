@@ -10,14 +10,9 @@ export default function FimDuo({ venceu, palavra, pontos, placar, jogadorAdivinh
         A palavra era: <strong>{palavra}</strong>
       </p>
 
-      {pontos && venceu && (
+      {pontos && venceu && pontos.total > 0 && (
         <div className="cartao-pontos">
-          <div className="pontos-total">Jogador {jogadorAdivinhando} ganhou +{pontos.total} pts</div>
-          <div className="pontos-breakdown">
-            <span>{pontos.base} base</span>
-            <span>+ {pontos.bonus} bônus</span>
-            <span className="pontos-subtle">({pontos.tentativasRestantes} tentativas × 5)</span>
-          </div>
+          <div className="pontos-total">Jogador {jogadorAdivinhando} ganhou +{pontos.total} {pontos.total === 1 ? 'ponto' : 'pontos'}</div>
         </div>
       )}
 

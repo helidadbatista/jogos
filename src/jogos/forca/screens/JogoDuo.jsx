@@ -26,11 +26,7 @@ export default function JogoDuo({ palavra, dica, placar, jogadorAdivinhando, onV
 
   useEffect(() => {
     if (j.fim) {
-      const pontos = calcularPontosDuo({
-        erros: j.erros,
-        maxErros: j.maxErros,
-        venceu: j.venceu,
-      });
+      const pontos = calcularPontosDuo({ venceu: j.venceu });
       const t = setTimeout(
         () => onFim({ venceu: j.venceu, palavra: j.palavra, pontos }),
         1400

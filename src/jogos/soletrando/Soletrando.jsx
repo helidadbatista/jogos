@@ -3,14 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import MenuSoletrando from './MenuSoletrando.jsx';
 import JogoSoletrando from './JogoSoletrando.jsx';
 import FimSoletrando from './FimSoletrando.jsx';
-
-const MULT_IDADE = { '4-6': 1, '7-9': 2, '10-12': 3 };
-const MULT_DIF = { facil: 1, medio: 2, dificil: 3 };
-
-function pontosSoletrando(acertos, idade, dificuldade) {
-  const m = (MULT_IDADE[idade] ?? 1) * (MULT_DIF[dificuldade] ?? 1);
-  return acertos * 10 * m;
-}
+import { calcularPontosSoletrando } from '../../core/scoring.js';
 
 export default function Soletrando({ idade, onGanharPontos }) {
   const navigate = useNavigate();
@@ -23,7 +16,7 @@ export default function Soletrando({ idade, onGanharPontos }) {
     return (
       <div className="tela">
         <h1 className="titulo">Defina a idade primeiro</h1>
-        <button className="botao-principal" onClick={() => navigate('/')}>← Voltar ao Hub</button>
+        <button className="botao-principal" onClick={() => navigate('/')}>← Voltar ao Início</button>
       </div>
     );
   }
@@ -44,7 +37,7 @@ export default function Soletrando({ idade, onGanharPontos }) {
           dificuldade={dificuldade}
           onVoltar={() => setTela('menu')}
           onFim={(r) => {
-            const ganhos = pontosSoletrando(r.acertos, idade, dificuldade);
+            const ganhos = calcularPontosSoletrando(r.acertos);
             if (ganhos) onGanharPontos(ganhos);
             setResultado({ ...r, pontos: ganhos });
             setTela('fim');

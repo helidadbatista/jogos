@@ -14,7 +14,7 @@ export default function MenuSoletrando({ dificuldade, setDificuldade, onJogar })
 
   return (
     <div className="tela tela-contexto">
-      <button className="botao-voltar" onClick={() => { sons.clique(); navigate('/'); }}>← Hub</button>
+      <button className="botao-voltar" onClick={() => { sons.clique(); navigate('/'); }}>← Início</button>
       <h1 className="titulo">🔊 Soletrando</h1>
       <p className="subtitulo">Ouça a palavra com atenção e digite certinho!<br/>As palavras vêm misturadas, é surpresa! 🎲</p>
 

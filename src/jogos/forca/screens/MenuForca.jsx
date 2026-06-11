@@ -3,7 +3,7 @@ import { sons } from '../../../core/sounds.js';
 export default function MenuForca({ idade, onJogarSolo, onJogarDuo, onVoltarHub }) {
   return (
     <div className="tela tela-inicio">
-      <button className="botao-voltar" onClick={() => { sons.clique(); onVoltarHub(); }}>← Hub</button>
+      <button className="botao-voltar" onClick={() => { sons.clique(); onVoltarHub(); }}>← Início</button>
       <h1 className="titulo">🎯 Jogo da Forca</h1>
       <p className="subtitulo">Como você quer jogar?</p>
 

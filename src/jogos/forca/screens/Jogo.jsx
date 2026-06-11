@@ -25,13 +25,7 @@ export default function Jogo({ idade, dificuldade, tema, onVoltar, onFim }) {
 
   useEffect(() => {
     if (j.fim) {
-      const pontos = calcularPontos({
-        idade,
-        dificuldade,
-        erros: j.erros,
-        maxErros: j.maxErros,
-        venceu: j.venceu,
-      });
+      const pontos = calcularPontos({ dificuldade, venceu: j.venceu });
       const t = setTimeout(
         () => onFim({ venceu: j.venceu, palavra: j.palavra, pontos }),
         1400
@@ -72,7 +66,7 @@ export default function Jogo({ idade, dificuldade, tema, onVoltar, onFim }) {
           )}
           {!j.dicaSempreVisivel && !j.dicaPedida && (
             <button className="botao-dica" onClick={j.pedirDica} disabled={j.fim}>
-              💡 Pedir dica (custa 1 tentativa)
+              💡 Pedir dica
             </button>
           )}
         </div>
