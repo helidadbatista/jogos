@@ -4,7 +4,7 @@ export default function FimDuo({ venceu, palavra, pontos, placar, jogadorAdivinh
   const vencedor = venceu ? jogadorAdivinhando : (jogadorAdivinhando === 2 ? 1 : 2);
   return (
     <div className={`tela tela-fim ${venceu ? 'fim-vitoria' : 'fim-derrota'}`}>
-      <div className="fim-emoji">{venceu ? '🏆🎉' : '🌱'}</div>
+      <div className="fim-emoji">{venceu ? '🏆' : '🌱'}</div>
       <h1 className="titulo">Jogador {vencedor} venceu!</h1>
       <p className="subtitulo">
         A palavra era: <strong>{palavra}</strong>

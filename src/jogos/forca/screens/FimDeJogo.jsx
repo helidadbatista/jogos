@@ -3,10 +3,10 @@ import { sons } from '../../../core/sounds.js';
 export default function FimDeJogo({ venceu, palavra, pontos, onNovaRodada, onTrocarContexto, onInicio }) {
   return (
     <div className={`tela tela-fim ${venceu ? 'fim-vitoria' : 'fim-derrota'}`}>
-      <div className="fim-emoji">{venceu ? '🎉🦊🎊' : '🌱🥺'}</div>
-      <h1 className="titulo">{venceu ? 'Você venceu!' : 'Quase lá!'}</h1>
+      <div className="fim-emoji">{venceu ? '🐱✨' : '🌱'}</div>
+      <h1 className="titulo">{venceu ? 'Você venceu!' : 'Quase acertou!'}</h1>
       <p className="subtitulo">
-        {venceu ? 'A palavra era:' : 'A palavra era:'} <strong>{palavra}</strong>
+        {venceu ? 'A palavra era:' : 'Vamos tentar de novo! A palavra era:'} <strong>{palavra}</strong>
       </p>
 
       {pontos && venceu && pontos.total > 0 && (

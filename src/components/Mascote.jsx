@@ -1,9 +1,9 @@
 export default function Mascote({ estado = 'feliz' }) {
   const emojiPorEstado = {
-    feliz: '🦊',
-    pensando: '🤔',
-    festa: '🎉',
-    triste: '🥺',
+    feliz: '🐱',
+    pensando: '😺',
+    festa: '😸',
+    triste: '😿',
   };
   const falaPorEstado = {
     feliz: 'Vamos lá! Você consegue!',

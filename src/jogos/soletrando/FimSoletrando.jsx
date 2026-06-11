@@ -2,8 +2,8 @@ import { sons } from '../../core/sounds.js';
 
 export default function FimSoletrando({ acertos, total, acertosLista, pontos, onNovaRodada, onTrocarContexto, onInicio }) {
   const taxa = total > 0 ? acertos / total : 0;
-  const emoji = taxa === 1 ? '🏆🎉' : taxa >= 0.6 ? '🎊' : '🌱';
-  const titulo = taxa === 1 ? 'Perfeito!' : taxa >= 0.6 ? 'Mandou bem!' : 'Continue treinando!';
+  const emoji = taxa === 1 ? '🏆' : taxa >= 0.6 ? '🌟' : '🌱';
+  const titulo = taxa === 1 ? 'Perfeito!' : taxa >= 0.6 ? 'Mandou bem!' : 'Quase acertou, vamos tentar de novo!';
 
   return (
     <div className={`tela tela-fim ${taxa >= 0.6 ? 'fim-vitoria' : 'fim-derrota'}`}>
