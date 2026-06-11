@@ -37,7 +37,7 @@ button { font-family: inherit; }
 .app {
   max-width: 540px;
   margin: 0 auto;
-  padding: calc(8px + var(--safe-top)) 12px calc(16px + var(--safe-bottom));
+  padding: calc(60px + var(--safe-top)) 12px calc(16px + var(--safe-bottom));
   position: relative;
   min-height: 100dvh;
   display: flex;
@@ -406,16 +406,20 @@ body.calmo .tela { animation: none !important; }
 /* ------------ Palavra ------------ */
 .palavra {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
-  gap: 5px;
+  gap: clamp(2px, 1vw, 5px);
   margin: 2px 0;
+  width: 100%;
+  padding: 0 4px;
 }
 .letra {
-  width: 34px;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 38px;
   height: 44px;
   border-bottom: 4px solid var(--azul-escuro);
-  font-size: 26px;
+  font-size: clamp(15px, 6vw, 26px);
   font-weight: bold;
   color: var(--azul-escuro);
   display: flex;
@@ -423,7 +427,11 @@ body.calmo .tela { animation: none !important; }
   justify-content: center;
   padding-bottom: 2px;
 }
-.letra-espaco { width: 16px; height: 44px; }
+.letra-espaco {
+  flex: 0 0 12px;
+  max-width: 16px;
+  height: 44px;
+}
 .letra.visivel { animation: revelar 0.25s ease; }
 @keyframes revelar {
   from { transform: translateY(-6px); opacity: 0; }

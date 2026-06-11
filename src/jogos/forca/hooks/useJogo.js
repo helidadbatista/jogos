@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import palavrasData from '../../../core/palavras.json';
+import { escolherUma } from '../../../core/palavrasUsadas.js';
 import { useJogoCore } from './useJogoCore.js';
 
 const MAX_ERROS_POR_IDADE = { '4-6': 8, '7-9': 6, '10-12': 6 };
@@ -11,36 +12,49 @@ function filtrarPorDificuldade(lista, dificuldade) {
   return ordenada.slice(Math.floor(ordenada.length / 3), -Math.floor(ordenada.length / 3) || undefined);
 }
 
-function sortear(lista) {
-  return lista[Math.floor(Math.random() * lista.length)];
-}
-
-export function useJogo({ idade, dificuldade, tema }) {
+export function useJogo({ idade, dificuldade }) {
   const maxErros = MAX_ERROS_POR_IDADE[idade] ?? 6;
   const dicaSempreVisivel = idade === '4-6';
 
   const pool = useMemo(() => {
-    const todas = palavrasData.temas[tema]?.idades[idade] ?? [];
+    const todas = [];
+    for (const [temaId, temaInfo] of Object.entries(palavrasData.temas)) {
+      const desseTema = temaInfo.idades?.[idade] ?? [];
+      desseTema.forEach((p) =>
+        todas.push({
+          ...p,
+          temaId,
+          temaNome: temaInfo.nome,
+          temaEmoji: temaInfo.emoji,
+        })
+      );
+    }
     const filtradas = filtrarPorDificuldade(todas, dificuldade);
     return filtradas.length ? filtradas : todas;
-  }, [tema, idade, dificuldade]);
+  }, [idade, dificuldade]);
 
-  const [rodada, setRodada] = useState(() => sortear(pool));
+  const [rodada, setRodada] = useState(() => escolherUma('forca', idade, dificuldade, pool));
 
   useEffect(() => {
-    setRodada(sortear(pool));
-  }, [pool]);
+    setRodada(escolherUma('forca', idade, dificuldade, pool));
+  }, [pool, idade, dificuldade]);
 
   const core = useJogoCore({
-    palavra: rodada.palavra,
-    dica: rodada.dica,
+    palavra: rodada?.palavra ?? '',
+    dica: rodada?.dica ?? '',
     maxErros,
     dicaSempreVisivel,
   });
 
   const novaRodada = useCallback(() => {
-    setRodada(sortear(pool));
-  }, [pool]);
+    setRodada(escolherUma('forca', idade, dificuldade, pool));
+  }, [pool, idade, dificuldade]);
 
-  return { ...core, novaRodada };
+  return {
+    ...core,
+    novaRodada,
+    temaId: rodada?.temaId,
+    temaNome: rodada?.temaNome,
+    temaEmoji: rodada?.temaEmoji,
+  };
 }

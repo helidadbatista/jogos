@@ -13,7 +13,7 @@
     <circle cx="-44" cy="-38" r="7" fill="#ffffff"/>
     <circle cx="56" cy="-38" r="7" fill="#ffffff"/>
     <path d="M -16 10 Q 0 25 16 10 Q 0 0 -16 10 Z" fill="#ec4899" stroke="#831843" stroke-width="3" stroke-linejoin="round"/>
-    <path d="M 0 25 Q 0 40 -18 45 M 0 25 Q 0 40 18 45" stroke="#1f2937" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M -25 30 Q -12 35 0 30 Q 12 35 25 30" stroke="#1f2937" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     <line x1="-140" y1="20" x2="-50" y2="15" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
     <line x1="-140" y1="40" x2="-50" y2="30" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
     <line x1="140" y1="20" x2="50" y2="15" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>

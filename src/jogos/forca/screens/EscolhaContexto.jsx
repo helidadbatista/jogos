@@ -1,38 +1,19 @@
-import palavras from '../../../core/palavras.json';
 import { sons } from '../../../core/sounds.js';
 
 const DIFS = [
-  { id: 'facil', nome: 'Fácil', emoji: '🟢' },
-  { id: 'medio', nome: 'Médio', emoji: '🟡' },
-  { id: 'dificil', nome: 'Difícil', emoji: '🔴' },
+  { id: 'facil', nome: 'Fácil', emoji: '🟢', desc: 'Palavras curtinhas' },
+  { id: 'medio', nome: 'Médio', emoji: '🟡', desc: 'Palavras médias' },
+  { id: 'dificil', nome: 'Difícil', emoji: '🔴', desc: 'Palavras grandes' },
 ];
 
-export default function EscolhaContexto({ tema, setTema, dificuldade, setDificuldade, onJogar, onVoltar }) {
-  const temas = Object.entries(palavras.temas);
-  const pronto = !!tema && !!dificuldade;
+export default function EscolhaContexto({ dificuldade, setDificuldade, onJogar, onVoltar }) {
   return (
     <div className="tela tela-contexto">
       <button className="botao-voltar" onClick={() => { sons.clique(); onVoltar(); }}>← Voltar</button>
-      <h1 className="titulo">Escolha tema e dificuldade</h1>
+      <h1 className="titulo">Escolha a dificuldade</h1>
+      <p className="subtitulo">As palavras vêm sorteadas de todos os temas! 🎲</p>
 
       <section className="bloco">
-        <h2>Tema</h2>
-        <div className="cards cards-tema">
-          {temas.map(([id, t]) => (
-            <button
-              key={id}
-              className={`card card-tema ${tema === id ? 'card-selecionado' : ''}`}
-              onClick={() => { sons.clique(); setTema(id); }}
-            >
-              <div className="card-emoji-grande">{t.emoji}</div>
-              <div className="card-nome">{t.nome}</div>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section className="bloco">
-        <h2>Dificuldade</h2>
         <div className="cards cards-pequenos">
           {DIFS.map((d) => (
             <button
@@ -42,6 +23,7 @@ export default function EscolhaContexto({ tema, setTema, dificuldade, setDificul
             >
               <div className="card-emoji">{d.emoji}</div>
               <div className="card-nome">{d.nome}</div>
+              <div className="card-desc">{d.desc}</div>
             </button>
           ))}
         </div>
@@ -49,7 +31,7 @@ export default function EscolhaContexto({ tema, setTema, dificuldade, setDificul
 
       <button
         className="botao-principal"
-        disabled={!pronto}
+        disabled={!dificuldade}
         onClick={() => { sons.clique(); onJogar(); }}
       >
         Jogar ➜

@@ -4,15 +4,14 @@ import Palavra from '../components/Palavra.jsx';
 import Teclado from '../components/Teclado.jsx';
 import Mascote from '../../../components/Mascote.jsx';
 import { useJogo } from '../hooks/useJogo.js';
-import palavrasData from '../../../core/palavras.json';
 import { calcularPontos } from '../../../core/scoring.js';
 import { sons } from '../../../core/sounds.js';
 
 const ROTULO_DIFICULDADE = { facil: '🟢 Fácil', medio: '🟡 Médio', dificil: '🔴 Difícil' };
 const ROTULO_IDADE = { '4-6': '🐣 4-6 anos', '7-9': '🐥 7-9 anos', '10-12': '🦅 10-12 anos' };
 
-export default function Jogo({ idade, dificuldade, tema, onVoltar, onFim }) {
-  const j = useJogo({ idade, dificuldade, tema });
+export default function Jogo({ idade, dificuldade, onVoltar, onFim }) {
+  const j = useJogo({ idade, dificuldade });
 
   useEffect(() => {
     function onKey(e) {
@@ -47,9 +46,9 @@ export default function Jogo({ idade, dificuldade, tema, onVoltar, onFim }) {
       <button className="botao-voltar" onClick={() => { sons.clique(); onVoltar(); }}>← Menu</button>
 
       <div className="cabecalho-jogo" aria-label="contexto da rodada">
-        <span className="tag tag-tema">
-          {palavrasData.temas[tema]?.emoji} {palavrasData.temas[tema]?.nome}
-        </span>
+        {j.temaNome && (
+          <span className="tag tag-tema">{j.temaEmoji} {j.temaNome}</span>
+        )}
         <span className="tag tag-idade">{ROTULO_IDADE[idade] ?? idade}</span>
         <span className="tag tag-dificuldade">{ROTULO_DIFICULDADE[dificuldade] ?? dificuldade}</span>
       </div>

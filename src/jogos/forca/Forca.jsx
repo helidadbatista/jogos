@@ -13,7 +13,6 @@ export default function Forca({ idade, onGanharPontos }) {
   const navigate = useNavigate();
   const [tela, setTela] = useState('menu');
   const [dificuldade, setDificuldade] = useState(null);
-  const [tema, setTema] = useState(null);
   const [resultado, setResultado] = useState(null);
   const [reiniciarKey, setReiniciarKey] = useState(0);
 
@@ -50,8 +49,6 @@ export default function Forca({ idade, onGanharPontos }) {
       )}
       {tela === 'contexto' && (
         <EscolhaContexto
-          tema={tema}
-          setTema={setTema}
           dificuldade={dificuldade}
           setDificuldade={setDificuldade}
           onJogar={() => { setReiniciarKey((k) => k + 1); setTela('jogo'); }}
@@ -63,7 +60,6 @@ export default function Forca({ idade, onGanharPontos }) {
           key={reiniciarKey}
           idade={idade}
           dificuldade={dificuldade}
-          tema={tema}
           onVoltar={() => setTela('menu')}
           onFim={(r) => {
             if (r.venceu && r.pontos) onGanharPontos(r.pontos.total);

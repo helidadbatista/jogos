@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import palavrasData from '../../core/palavras.json';
+import { escolherVarias } from '../../core/palavrasUsadas.js';
 
 const TAMANHO_RODADA = 5;
 
@@ -8,15 +9,6 @@ function filtrarPorDificuldade(lista, dificuldade) {
   if (dificuldade === 'facil') return ordenada.slice(0, Math.ceil(ordenada.length / 3));
   if (dificuldade === 'dificil') return ordenada.slice(-Math.ceil(ordenada.length / 3));
   return ordenada.slice(Math.floor(ordenada.length / 3), -Math.floor(ordenada.length / 3) || undefined);
-}
-
-function embaralhar(lista) {
-  const a = [...lista];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
 }
 
 export function useSoletrando({ idade, dificuldade }) {
@@ -28,7 +20,7 @@ export function useSoletrando({ idade, dificuldade }) {
     }
     const filtradas = filtrarPorDificuldade(todasMisturadas, dificuldade);
     const fonte = filtradas.length ? filtradas : todasMisturadas;
-    return embaralhar(fonte).slice(0, TAMANHO_RODADA);
+    return escolherVarias('soletrando', idade, dificuldade, fonte, TAMANHO_RODADA);
   }, [idade, dificuldade]);
 
   const [indice, setIndice] = useState(0);

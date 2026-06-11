@@ -60,7 +60,7 @@ export default function Hub({ idade, setIdade, pontosTotal, pontosPorJogo, onZer
 
       {idade && (
         <>
-          <p className="subtitulo">O que você quer brincar hoje?</p>
+          <p className="subtitulo">Escolha um jogo:</p>
           <section className="bloco">
             <div className="cards cards-jogos">
               {JOGOS.map((j) => (
