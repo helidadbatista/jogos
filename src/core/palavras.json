@@ -1,0 +1,136 @@
+{
+  "temas": {
+    "animais": {
+      "nome": "Animais",
+      "emoji": "🐶",
+      "idades": {
+        "4-6": [
+          { "palavra": "GATO", "dica": "Diz miau e gosta de leite" },
+          { "palavra": "CAO", "dica": "Late e abana o rabo" },
+          { "palavra": "PATO", "dica": "Faz quá-quá e nada" },
+          { "palavra": "VACA", "dica": "Dá leite e faz muuu" },
+          { "palavra": "BOI", "dica": "Macho da vaca, vive na fazenda" },
+          { "palavra": "RATO", "dica": "Pequeno e gosta de queijo" },
+          { "palavra": "URSO", "dica": "É grande e gosta de mel" }
+        ],
+        "7-9": [
+          { "palavra": "CAVALO", "dica": "Animal grande que corre e relincha" },
+          { "palavra": "MACACO", "dica": "Sobe em árvores e adora banana" },
+          { "palavra": "GIRAFA", "dica": "Pescoço mais comprido da savana" },
+          { "palavra": "TUBARAO", "dica": "Peixe grande com muitos dentes" },
+          { "palavra": "CACHORRO", "dica": "Late, abana o rabo e é fiel" },
+          { "palavra": "GALINHA", "dica": "Põe ovo todo dia e faz cocoricó" },
+          { "palavra": "PORCO", "dica": "Faz oinc e gosta de lama" }
+        ],
+        "10-12": [
+          { "palavra": "ELEFANTE", "dica": "Tem tromba e é o maior animal terrestre" },
+          { "palavra": "BORBOLETA", "dica": "Era lagarta antes de ganhar asas coloridas" },
+          { "palavra": "CROCODILO", "dica": "Réptil de pântano com mandíbula forte" },
+          { "palavra": "JACARE", "dica": "Réptil de rios brasileiros, parente do crocodilo" },
+          { "palavra": "ORNITORRINCO", "dica": "Mamífero esquisito com bico de pato e que põe ovos" },
+          { "palavra": "RINOCERONTE", "dica": "Tem chifre no focinho" },
+          { "palavra": "HIPOPOTAMO", "dica": "Vive em rios africanos, parece um porco gigante" }
+        ]
+      }
+    },
+    "frutas": {
+      "nome": "Frutas e Comidas",
+      "emoji": "🍎",
+      "idades": {
+        "4-6": [
+          { "palavra": "UVA", "dica": "Bolinha doce roxa ou verde" },
+          { "palavra": "PERA", "dica": "Fruta verde em forma de gota" },
+          { "palavra": "JACA", "dica": "Fruta grande, espinhuda por fora e doce por dentro" },
+          { "palavra": "PAO", "dica": "Vai com manteiga no café da manhã" },
+          { "palavra": "BOLO", "dica": "Doce de aniversário" },
+          { "palavra": "SUCO", "dica": "Bebida feita de fruta" },
+          { "palavra": "OVO", "dica": "Galinha bota, dá pra fazer omelete" }
+        ],
+        "7-9": [
+          { "palavra": "BANANA", "dica": "Amarela e comprida, o macaco adora" },
+          { "palavra": "MANGA", "dica": "Fruta tropical alaranjada e bem doce" },
+          { "palavra": "MAMAO", "dica": "Fruta alaranjada, parecida com um melão pequeno" },
+          { "palavra": "PIPOCA", "dica": "Estoura no fogo e a gente come no cinema" },
+          { "palavra": "LIMAO", "dica": "Verde e bem azedo" },
+          { "palavra": "CENOURA", "dica": "Laranja, o coelho ama" },
+          { "palavra": "FEIJAO", "dica": "Vai com arroz no almoço brasileiro" }
+        ],
+        "10-12": [
+          { "palavra": "ABACAXI", "dica": "Tem coroa e é amarelo por dentro" },
+          { "palavra": "MELANCIA", "dica": "Verde por fora, vermelha e cheia de sementes" },
+          { "palavra": "MORANGO", "dica": "Pequeno, vermelho, com sementinhas amarelas" },
+          { "palavra": "MARACUJA", "dica": "Fruta azedinha que ajuda a dormir" },
+          { "palavra": "CHOCOLATE", "dica": "Doce marrom feito de cacau" },
+          { "palavra": "BRIGADEIRO", "dica": "Docinho brasileiro de festa, com granulado" },
+          { "palavra": "BERINJELA", "dica": "Legume roxo e comprido" }
+        ]
+      }
+    },
+    "objetos": {
+      "nome": "Objetos do Dia a Dia",
+      "emoji": "🎒",
+      "idades": {
+        "4-6": [
+          { "palavra": "BOLA", "dica": "Redonda, usada para chutar" },
+          { "palavra": "LIVRO", "dica": "Tem páginas com histórias" },
+          { "palavra": "CAMA", "dica": "Onde a gente dorme" },
+          { "palavra": "COPO", "dica": "Para beber água" },
+          { "palavra": "MESA", "dica": "Onde a gente come" },
+          { "palavra": "LAPIS", "dica": "Serve para escrever" },
+          { "palavra": "PORTA", "dica": "Você abre para entrar no cômodo" }
+        ],
+        "7-9": [
+          { "palavra": "MOCHILA", "dica": "Leva nas costas para a escola" },
+          { "palavra": "JANELA", "dica": "Abertura na parede com vidro" },
+          { "palavra": "TESOURA", "dica": "Corta papel" },
+          { "palavra": "BORRACHA", "dica": "Apaga o lápis" },
+          { "palavra": "CHUVEIRO", "dica": "Cai água quando você toma banho" },
+          { "palavra": "CADEIRA", "dica": "Móvel para sentar" },
+          { "palavra": "CADERNO", "dica": "Tem folhas pautadas pra escrever na escola" }
+        ],
+        "10-12": [
+          { "palavra": "COMPUTADOR", "dica": "Máquina com tela e teclado" },
+          { "palavra": "BICICLETA", "dica": "Veículo de duas rodas que você pedala" },
+          { "palavra": "TELEFONE", "dica": "Aparelho que você fala e ouve quem está longe" },
+          { "palavra": "MICROFONE", "dica": "Aumenta o volume da sua voz" },
+          { "palavra": "CALCULADORA", "dica": "Faz contas pra você" },
+          { "palavra": "VENTILADOR", "dica": "Tem hélices e refresca no calor" },
+          { "palavra": "ASPIRADOR", "dica": "Limpa o chão sugando a sujeira" }
+        ]
+      }
+    },
+    "natureza": {
+      "nome": "Profissões e Natureza",
+      "emoji": "🌳",
+      "idades": {
+        "4-6": [
+          { "palavra": "SOL", "dica": "Brilha amarelo no céu de dia" },
+          { "palavra": "LUA", "dica": "Aparece no céu à noite" },
+          { "palavra": "MAR", "dica": "Água salgada com ondas" },
+          { "palavra": "RIO", "dica": "Água doce que corre" },
+          { "palavra": "FLOR", "dica": "Colorida e tem cheiro bom" },
+          { "palavra": "MEL", "dica": "Doce amarelo que a abelha faz" },
+          { "palavra": "PEDRA", "dica": "Dura, encontrada no chão" }
+        ],
+        "7-9": [
+          { "palavra": "NUVEM", "dica": "Branca, fofa, fica no céu" },
+          { "palavra": "ESTRELA", "dica": "Brilha à noite no céu" },
+          { "palavra": "ARVORE", "dica": "Tem tronco, galhos e folhas" },
+          { "palavra": "BOMBEIRO", "dica": "Apaga incêndios" },
+          { "palavra": "PADEIRO", "dica": "Faz pão de manhã cedo" },
+          { "palavra": "CHUVA", "dica": "Água que cai do céu" },
+          { "palavra": "MEDICO", "dica": "Cuida das pessoas doentes" }
+        ],
+        "10-12": [
+          { "palavra": "MONTANHA", "dica": "Elevação muito alta de terra ou rocha" },
+          { "palavra": "FLORESTA", "dica": "Grande área coberta de árvores" },
+          { "palavra": "CACHOEIRA", "dica": "Água caindo de uma altura" },
+          { "palavra": "ARQUITETO", "dica": "Profissional que projeta casas e prédios" },
+          { "palavra": "VETERINARIO", "dica": "Médico de animais" },
+          { "palavra": "ASTRONAUTA", "dica": "Viaja para o espaço" },
+          { "palavra": "AGRICULTOR", "dica": "Planta, cuida da terra e faz a colheita" }
+        ]
+      }
+    }
+  }
+}
