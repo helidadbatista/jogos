@@ -11,7 +11,11 @@
           { "palavra": "VACA", "dica": "Dá leite e faz muuu" },
           { "palavra": "BOI", "dica": "Macho da vaca, vive na fazenda" },
           { "palavra": "RATO", "dica": "Pequeno e gosta de queijo" },
-          { "palavra": "URSO", "dica": "É grande e gosta de mel" }
+          { "palavra": "URSO", "dica": "É grande e gosta de mel" },
+          { "palavra": "GALO", "dica": "Marido da galinha, canta de manhã" },
+          { "palavra": "FOCA", "dica": "Animal do mar que bate palmas" },
+          { "palavra": "MULA", "dica": "Filha do cavalo com a jumenta" },
+          { "palavra": "BODE", "dica": "Macho da cabra, tem barba e chifre" }
         ],
         "7-9": [
           { "palavra": "CAVALO", "dica": "Animal grande que corre e relincha" },
@@ -20,7 +24,13 @@
           { "palavra": "TUBARÃO", "dica": "Peixe grande com muitos dentes" },
           { "palavra": "CACHORRO", "dica": "Late, abana o rabo e é fiel" },
           { "palavra": "GALINHA", "dica": "Põe ovo todo dia e faz cocoricó" },
-          { "palavra": "PORCO", "dica": "Faz oinc e gosta de lama" }
+          { "palavra": "PORCO", "dica": "Faz oinc e gosta de lama" },
+          { "palavra": "TIGRE", "dica": "Felino grande de listras pretas" },
+          { "palavra": "LEÃO", "dica": "Rei da selva, tem juba dourada" },
+          { "palavra": "ZEBRA", "dica": "Tem listras pretas e brancas" },
+          { "palavra": "COELHO", "dica": "Pula e tem orelhas compridas" },
+          { "palavra": "RAPOSA", "dica": "Animal esperto da floresta" },
+          { "palavra": "PINGUIM", "dica": "Pássaro que não voa e vive no gelo" }
         ],
         "10-12": [
           { "palavra": "ELEFANTE", "dica": "Tem tromba e é o maior animal terrestre" },
@@ -29,7 +39,18 @@
           { "palavra": "JACARÉ", "dica": "Réptil de rios brasileiros, parente do crocodilo" },
           { "palavra": "ORNITORRINCO", "dica": "Mamífero esquisito com bico de pato e que põe ovos" },
           { "palavra": "RINOCERONTE", "dica": "Tem chifre no focinho" },
-          { "palavra": "HIPOPÓTAMO", "dica": "Vive em rios africanos, parece um porco gigante" }
+          { "palavra": "HIPOPÓTAMO", "dica": "Vive em rios africanos, parece um porco gigante" },
+          { "palavra": "TARTARUGA", "dica": "Carrega a casa nas costas" },
+          { "palavra": "CAMALEÃO", "dica": "Réptil que muda de cor" },
+          { "palavra": "AVESTRUZ", "dica": "Pássaro grande que não voa" },
+          { "palavra": "GAVIÃO", "dica": "Ave de rapina com visão poderosa" },
+          { "palavra": "MORCEGO", "dica": "Voa de noite e dorme de cabeça pra baixo" },
+          { "palavra": "ARANHA", "dica": "Tem oito patas e faz teia" },
+          { "palavra": "ESCORPIÃO", "dica": "Aracnídeo com ferrão na cauda" },
+          { "palavra": "SALAMANDRA", "dica": "Anfíbio parecido com um lagarto" },
+          { "palavra": "GOLFINHO", "dica": "Mamífero esperto do oceano" },
+          { "palavra": "ESQUILO", "dica": "Roedor de rabo peludo que junta nozes" },
+          { "palavra": "BALEIA", "dica": "Maior animal do oceano" }
         ]
       }
     },
@@ -44,7 +65,11 @@
           { "palavra": "PÃO", "dica": "Vai com manteiga no café da manhã" },
           { "palavra": "BOLO", "dica": "Doce de aniversário" },
           { "palavra": "SUCO", "dica": "Bebida feita de fruta" },
-          { "palavra": "OVO", "dica": "Galinha bota, dá pra fazer omelete" }
+          { "palavra": "OVO", "dica": "Galinha bota, dá pra fazer omelete" },
+          { "palavra": "COCO", "dica": "Marrom por fora, branco por dentro, dá água" },
+          { "palavra": "FIGO", "dica": "Frutinha roxinha bem doce" },
+          { "palavra": "LEITE", "dica": "Branco, vem da vaca" },
+          { "palavra": "KIWI", "dica": "Verde por dentro, marrom por fora" }
         ],
         "7-9": [
           { "palavra": "BANANA", "dica": "Amarela e comprida, o macaco adora" },
@@ -53,7 +78,14 @@
           { "palavra": "PIPOCA", "dica": "Estoura no fogo e a gente come no cinema" },
           { "palavra": "LIMÃO", "dica": "Verde e bem azedo" },
           { "palavra": "CENOURA", "dica": "Laranja, o coelho ama" },
-          { "palavra": "FEIJÃO", "dica": "Vai com arroz no almoço brasileiro" }
+          { "palavra": "FEIJÃO", "dica": "Vai com arroz no almoço brasileiro" },
+          { "palavra": "GOIABA", "dica": "Verde por fora, vermelha por dentro" },
+          { "palavra": "LARANJA", "dica": "Cor que tem o nome da fruta" },
+          { "palavra": "CAJU", "dica": "Tem uma castanha pendurada por fora" },
+          { "palavra": "MAÇÃ", "dica": "Vermelha do lanche da Branca de Neve" },
+          { "palavra": "MELÃO", "dica": "Verde por fora, amarelo por dentro, doce" },
+          { "palavra": "AMORA", "dica": "Pequenininha, escurinha, doce" },
+          { "palavra": "BISCOITO", "dica": "Crocante, vai bem com leite" }
         ],
         "10-12": [
           { "palavra": "ABACAXI", "dica": "Tem coroa e é amarelo por dentro" },
@@ -62,7 +94,18 @@
           { "palavra": "MARACUJÁ", "dica": "Fruta azedinha que ajuda a dormir" },
           { "palavra": "CHOCOLATE", "dica": "Doce marrom feito de cacau" },
           { "palavra": "BRIGADEIRO", "dica": "Docinho brasileiro de festa, com granulado" },
-          { "palavra": "BERINJELA", "dica": "Legume roxo e comprido" }
+          { "palavra": "BERINJELA", "dica": "Legume roxo e comprido" },
+          { "palavra": "TANGERINA", "dica": "Parente da laranja, mais fácil de descascar" },
+          { "palavra": "JABUTICABA", "dica": "Pretinha, cresce no tronco da árvore" },
+          { "palavra": "FRAMBOESA", "dica": "Vermelha, parecida com a amora" },
+          { "palavra": "MIRTILO", "dica": "Bolinha azul cheia de antioxidante" },
+          { "palavra": "ROMÃ", "dica": "Fruta avermelhada cheia de sementinhas" },
+          { "palavra": "ESPINAFRE", "dica": "Verdura que dá força ao Popeye" },
+          { "palavra": "RABANETE", "dica": "Raiz vermelha por fora, branca por dentro" },
+          { "palavra": "BETERRABA", "dica": "Raiz roxa, ótima na salada" },
+          { "palavra": "HAMBÚRGUER", "dica": "Sanduíche com carne entre dois pães" },
+          { "palavra": "ESPAGUETE", "dica": "Massa comprida e fininha" },
+          { "palavra": "PÊSSEGO", "dica": "Fruta doce com pelinhos por fora" }
         ]
       }
     },
@@ -77,7 +120,11 @@
           { "palavra": "COPO", "dica": "Para beber água" },
           { "palavra": "MESA", "dica": "Onde a gente come" },
           { "palavra": "LÁPIS", "dica": "Serve para escrever" },
-          { "palavra": "PORTA", "dica": "Você abre para entrar no cômodo" }
+          { "palavra": "PORTA", "dica": "Você abre para entrar no cômodo" },
+          { "palavra": "SAPATO", "dica": "Calçado pra ir à escola" },
+          { "palavra": "CHAVE", "dica": "Abre e fecha portas" },
+          { "palavra": "PRATO", "dica": "Onde a comida é servida" },
+          { "palavra": "BONÉ", "dica": "Acessório de cabeça com aba" }
         ],
         "7-9": [
           { "palavra": "MOCHILA", "dica": "Leva nas costas para a escola" },
@@ -86,7 +133,14 @@
           { "palavra": "BORRACHA", "dica": "Apaga o lápis" },
           { "palavra": "CHUVEIRO", "dica": "Cai água quando você toma banho" },
           { "palavra": "CADEIRA", "dica": "Móvel para sentar" },
-          { "palavra": "CADERNO", "dica": "Tem folhas pautadas pra escrever na escola" }
+          { "palavra": "CADERNO", "dica": "Tem folhas pautadas pra escrever na escola" },
+          { "palavra": "ESPELHO", "dica": "Mostra sua imagem refletida" },
+          { "palavra": "FOGÃO", "dica": "Onde a gente cozinha a comida" },
+          { "palavra": "PANELA", "dica": "Recipiente pra cozinhar" },
+          { "palavra": "GARRAFA", "dica": "Recipiente alto pra guardar líquido" },
+          { "palavra": "CAMISETA", "dica": "Roupa de cima de manga curta" },
+          { "palavra": "CELULAR", "dica": "Aparelho de chamadas e jogos" },
+          { "palavra": "RELÓGIO", "dica": "Mostra que horas são" }
         ],
         "10-12": [
           { "palavra": "COMPUTADOR", "dica": "Máquina com tela e teclado" },
@@ -95,7 +149,20 @@
           { "palavra": "MICROFONE", "dica": "Aumenta o volume da sua voz" },
           { "palavra": "CALCULADORA", "dica": "Faz contas pra você" },
           { "palavra": "VENTILADOR", "dica": "Tem hélices e refresca no calor" },
-          { "palavra": "ASPIRADOR", "dica": "Limpa o chão sugando a sujeira" }
+          { "palavra": "ASPIRADOR", "dica": "Limpa o chão sugando a sujeira" },
+          { "palavra": "TELEVISÃO", "dica": "Tela grande que mostra filmes e desenhos" },
+          { "palavra": "LIQUIDIFICADOR", "dica": "Faz suco e vitamina batendo as frutas" },
+          { "palavra": "BATEDEIRA", "dica": "Mistura ingredientes do bolo" },
+          { "palavra": "MARTELO", "dica": "Ferramenta pra pregar prego" },
+          { "palavra": "PARAFUSO", "dica": "Pequeno pino metálico com rosca" },
+          { "palavra": "BINÓCULO", "dica": "Aproxima a imagem de longe" },
+          { "palavra": "DICIONÁRIO", "dica": "Livro com o significado das palavras" },
+          { "palavra": "ENCICLOPÉDIA", "dica": "Livrão com muita informação sobre tudo" },
+          { "palavra": "BIBLIOTECA", "dica": "Lugar cheio de livros pra emprestar" },
+          { "palavra": "TERMÔMETRO", "dica": "Mede a temperatura do corpo ou do ar" },
+          { "palavra": "BÚSSOLA", "dica": "Mostra a direção do norte" },
+          { "palavra": "AMPULHETA", "dica": "Relógio antigo de areia" },
+          { "palavra": "IMPRESSORA", "dica": "Faz cópia das coisas em papel" }
         ]
       }
     },
@@ -110,7 +177,11 @@
           { "palavra": "RIO", "dica": "Água doce que corre" },
           { "palavra": "FLOR", "dica": "Colorida e tem cheiro bom" },
           { "palavra": "MEL", "dica": "Doce amarelo que a abelha faz" },
-          { "palavra": "PEDRA", "dica": "Dura, encontrada no chão" }
+          { "palavra": "PEDRA", "dica": "Dura, encontrada no chão" },
+          { "palavra": "VENTO", "dica": "Move folhas e balança árvores" },
+          { "palavra": "FOGO", "dica": "Quente e brilhante, cuidado!" },
+          { "palavra": "CÉU", "dica": "Azul de dia, escuro de noite" },
+          { "palavra": "GRAMA", "dica": "Plantinha verde no chão do jardim" }
         ],
         "7-9": [
           { "palavra": "NUVEM", "dica": "Branca, fofa, fica no céu" },
@@ -119,7 +190,14 @@
           { "palavra": "BOMBEIRO", "dica": "Apaga incêndios" },
           { "palavra": "PADEIRO", "dica": "Faz pão de manhã cedo" },
           { "palavra": "CHUVA", "dica": "Água que cai do céu" },
-          { "palavra": "MÉDICO", "dica": "Cuida das pessoas doentes" }
+          { "palavra": "MÉDICO", "dica": "Cuida das pessoas doentes" },
+          { "palavra": "TROVÃO", "dica": "Barulho forte do céu na chuva" },
+          { "palavra": "DESERTO", "dica": "Lugar seco com muita areia" },
+          { "palavra": "OCEANO", "dica": "Mar enorme entre os continentes" },
+          { "palavra": "JARDIM", "dica": "Lugar cheio de flores" },
+          { "palavra": "PROFESSOR", "dica": "Ensina na escola" },
+          { "palavra": "PILOTO", "dica": "Dirige avião ou helicóptero" },
+          { "palavra": "MOTORISTA", "dica": "Dirige carros e ônibus" }
         ],
         "10-12": [
           { "palavra": "MONTANHA", "dica": "Elevação muito alta de terra ou rocha" },
@@ -128,7 +206,22 @@
           { "palavra": "ARQUITETO", "dica": "Profissional que projeta casas e prédios" },
           { "palavra": "VETERINÁRIO", "dica": "Médico de animais" },
           { "palavra": "ASTRONAUTA", "dica": "Viaja para o espaço" },
-          { "palavra": "AGRICULTOR", "dica": "Planta, cuida da terra e faz a colheita" }
+          { "palavra": "AGRICULTOR", "dica": "Planta, cuida da terra e faz a colheita" },
+          { "palavra": "VULCÃO", "dica": "Montanha que cospe lava quente" },
+          { "palavra": "BIOLOGIA", "dica": "Estudo dos seres vivos" },
+          { "palavra": "HISTÓRIA", "dica": "Estudo do que aconteceu no passado" },
+          { "palavra": "MATEMÁTICA", "dica": "Ciência dos números e contas" },
+          { "palavra": "ASTRONOMIA", "dica": "Estudo das estrelas, planetas e do universo" },
+          { "palavra": "EQUADOR", "dica": "Linha imaginária no meio da Terra" },
+          { "palavra": "CONTINENTE", "dica": "Grande massa de terra como a América" },
+          { "palavra": "AMAZÔNIA", "dica": "Maior floresta tropical do mundo" },
+          { "palavra": "ENCANADOR", "dica": "Cuida dos canos de água da casa" },
+          { "palavra": "ELETRICISTA", "dica": "Cuida da fiação elétrica" },
+          { "palavra": "ADVOGADO", "dica": "Defende as pessoas na justiça" },
+          { "palavra": "ENFERMEIRO", "dica": "Ajuda médicos a cuidar dos doentes" },
+          { "palavra": "JORNALISTA", "dica": "Escreve e divulga notícias" },
+          { "palavra": "ENGENHEIRO", "dica": "Projeta máquinas, prédios e pontes" },
+          { "palavra": "CIENTISTA", "dica": "Faz experimentos e descobertas" }
         ]
       }
     }
