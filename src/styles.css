@@ -64,6 +64,50 @@ button { font-family: inherit; }
   padding: 0;
 }
 
+.seletor-idade { position: relative; }
+.botao-idade { font-size: 22px; }
+.popover-idade {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background: var(--card);
+  border: 2px solid var(--azul);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 160px;
+  z-index: 20;
+  animation: aparecer 0.18s ease;
+}
+.popover-titulo {
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+  padding: 4px 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 4px;
+}
+.opcao-idade {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--texto);
+  text-align: left;
+}
+.opcao-idade:hover { background: #f3f4f6; }
+.opcao-ativa { background: #eff6ff; color: var(--azul-escuro); font-weight: bold; }
+.opcao-emoji { font-size: 22px; }
+
 /* ============ MODO CALMO ============ */
 body.calmo {
   background: linear-gradient(180deg, #eff6ff, #ecfdf5);

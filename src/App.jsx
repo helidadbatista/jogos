@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Hub from './hub/Hub.jsx';
 import Forca from './jogos/forca/Forca.jsx';
 import Soletrando from './jogos/soletrando/Soletrando.jsx';
+import SeletorIdade from './components/SeletorIdade.jsx';
 import { useArmazenado } from './core/useArmazenado.js';
 import { usePontuacao } from './core/usePontuacao.js';
 import { setMuted, isMuted, sons } from './core/sounds.js';
@@ -34,6 +35,7 @@ export default function App() {
     <HashRouter>
       <div className="app">
         <div className="barra-topo">
+          <SeletorIdade idade={idade} setIdade={setIdade} />
           <button
             className="botao-toggle"
             onClick={toggleCalmo}
