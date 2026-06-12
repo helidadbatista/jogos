@@ -29,6 +29,13 @@ const JOGOS = [
     emoji: '🧩',
     desc: 'Preencha o quebra-cabeça de palavras',
   },
+  {
+    id: 'cacapalavras',
+    rota: '/cacapalavras',
+    nome: 'Caça-Palavras',
+    emoji: '🔎',
+    desc: 'Encontre as palavras escondidas',
+  },
 ];
 
 export default function Hub({ idade, setIdade, pontosTotal, pontosPorJogo, onZerarPontos }) {

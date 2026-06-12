@@ -4,6 +4,7 @@ import Hub from './hub/Hub.jsx';
 import Forca from './jogos/forca/Forca.jsx';
 import Soletrando from './jogos/soletrando/Soletrando.jsx';
 import Cruzadas from './jogos/cruzadas/Cruzadas.jsx';
+import Cacapalavras from './jogos/cacapalavras/Cacapalavras.jsx';
 import SeletorIdade from './components/SeletorIdade.jsx';
 import { useArmazenado } from './core/useArmazenado.js';
 import { usePontuacao } from './core/usePontuacao.js';
@@ -79,6 +80,10 @@ export default function App() {
           <Route
             path="/cruzadas"
             element={<Cruzadas idade={idade} onGanharPontos={(v) => adicionar('cruzadas', v)} />}
+          />
+          <Route
+            path="/cacapalavras"
+            element={<Cacapalavras idade={idade} onGanharPontos={(v) => adicionar('cacapalavras', v)} />}
           />
         </Routes>
       </div>
