@@ -28,7 +28,11 @@ export default function JogoCaca({ idade, dificuldade, onVoltar, onFim }) {
     if (!confirm('Desistir e ver onde estão as palavras?')) return;
     sons.derrota();
     j.revelar();
-    setTimeout(() => onFim({ venceu: false, total: j.totalPalavras, encontradas: j.totalEncontradas }), 1800);
+  }
+
+  function continuarFim() {
+    sons.clique();
+    onFim({ venceu: false, total: j.totalPalavras, encontradas: j.encontradasAntesRevelar });
   }
 
   if (!j.cacada) {
@@ -59,6 +63,7 @@ export default function JogoCaca({ idade, dificuldade, onVoltar, onFim }) {
         cellsEncontradas={j.cellsEncontradas}
         cellsSelecao={j.cellsSelecao}
         feedback={j.feedback}
+        revelado={j.revelado}
         onIniciar={j.iniciarSelecao}
         onMover={j.atualizarSelecao}
         onFinalizar={finalizar}
@@ -68,7 +73,16 @@ export default function JogoCaca({ idade, dificuldade, onVoltar, onFim }) {
       <ListaPalavras cacada={j.cacada} encontradas={j.encontradas} />
 
       <div className="acoes-cruzadas">
-        <button className="botao-secundario" onClick={desistir}>🏳️ Desistir</button>
+        {!j.revelado ? (
+          <button className="botao-secundario" onClick={desistir}>🏳️ Desistir</button>
+        ) : (
+          <>
+            <p className="aviso-revelado">
+              Você encontrou {j.encontradasAntesRevelar} de {j.totalPalavras}. Veja onde estavam as outras!
+            </p>
+            <button className="botao-principal" onClick={continuarFim}>Continuar ➜</button>
+          </>
+        )}
       </div>
     </div>
   );

@@ -47,11 +47,15 @@ export function useCacaPalavras({ idade, dificuldade }) {
   const [encontradas, setEncontradas] = useState(new Set());
   const [selecao, setSelecao] = useState(null);
   const [feedback, setFeedback] = useState(null);
+  const [revelado, setRevelado] = useState(false);
+  const [encontradasAntesRevelar, setEncontradasAntesRevelar] = useState(0);
 
   useEffect(() => {
     setEncontradas(new Set());
     setSelecao(null);
     setFeedback(null);
+    setRevelado(false);
+    setEncontradasAntesRevelar(0);
   }, [cacada]);
 
   const cellsEncontradas = useMemo(() => {
@@ -108,10 +112,12 @@ export function useCacaPalavras({ idade, dificuldade }) {
 
   const revelar = useCallback(() => {
     if (!cacada) return;
+    setEncontradasAntesRevelar(encontradas.size);
     const todas = new Set();
     for (let i = 0; i < cacada.colocadas.length; i++) todas.add(i);
     setEncontradas(todas);
-  }, [cacada]);
+    setRevelado(true);
+  }, [cacada, encontradas]);
 
   return {
     cacada,
@@ -120,6 +126,8 @@ export function useCacaPalavras({ idade, dificuldade }) {
     cellsSelecao,
     selecao,
     feedback,
+    revelado,
+    encontradasAntesRevelar,
     iniciarSelecao,
     atualizarSelecao,
     finalizarSelecao,

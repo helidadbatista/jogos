@@ -5,6 +5,7 @@ export default function GradeCaca({
   cellsEncontradas,
   cellsSelecao,
   feedback,
+  revelado,
   onIniciar,
   onMover,
   onFinalizar,
@@ -25,6 +26,7 @@ export default function GradeCaca({
   }
 
   function handlePointerDown(e) {
+    if (revelado) return;
     e.preventDefault();
     const c = cellFromPoint(e.clientX, e.clientY);
     if (!c) return;
@@ -33,13 +35,14 @@ export default function GradeCaca({
   }
 
   function handlePointerMove(e) {
-    if (cellsSelecao.length === 0) return;
+    if (revelado || cellsSelecao.length === 0) return;
     const c = cellFromPoint(e.clientX, e.clientY);
     if (!c) return;
     onMover(c.row, c.col);
   }
 
   function handlePointerUp(e) {
+    if (revelado) return;
     if (containerRef.current?.hasPointerCapture(e.pointerId)) {
       containerRef.current.releasePointerCapture(e.pointerId);
     }
@@ -47,6 +50,7 @@ export default function GradeCaca({
   }
 
   function handlePointerCancel() {
+    if (revelado) return;
     onCancelar();
   }
 
