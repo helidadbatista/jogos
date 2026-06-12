@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Hub from './hub/Hub.jsx';
 import Forca from './jogos/forca/Forca.jsx';
 import Soletrando from './jogos/soletrando/Soletrando.jsx';
+import Cruzadas from './jogos/cruzadas/Cruzadas.jsx';
 import SeletorIdade from './components/SeletorIdade.jsx';
 import { useArmazenado } from './core/useArmazenado.js';
 import { usePontuacao } from './core/usePontuacao.js';
@@ -74,6 +75,10 @@ export default function App() {
           <Route
             path="/soletrando"
             element={<Soletrando idade={idade} onGanharPontos={(v) => adicionar('soletrando', v)} />}
+          />
+          <Route
+            path="/cruzadas"
+            element={<Cruzadas idade={idade} onGanharPontos={(v) => adicionar('cruzadas', v)} />}
           />
         </Routes>
       </div>

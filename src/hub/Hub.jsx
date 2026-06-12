@@ -22,6 +22,13 @@ const JOGOS = [
     emoji: '🔊',
     desc: 'Ouça a palavra e digite certinho',
   },
+  {
+    id: 'cruzadas',
+    rota: '/cruzadas',
+    nome: 'Palavras Cruzadas',
+    emoji: '🧩',
+    desc: 'Preencha o quebra-cabeça de palavras',
+  },
 ];
 
 export default function Hub({ idade, setIdade, pontosTotal, pontosPorJogo, onZerarPontos }) {
