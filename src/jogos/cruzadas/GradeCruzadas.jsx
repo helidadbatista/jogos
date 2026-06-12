@@ -2,6 +2,8 @@ export default function GradeCruzadas({
   cruzada,
   cellChars,
   erros,
+  errosOriginais,
+  revelado,
   cellAtiva,
   palavraAtiva,
   cellsDaPalavraAtiva,
@@ -33,20 +35,24 @@ export default function GradeCruzadas({
           }
           const k = `${r},${c}`;
           const numero = numeroPorCell.get(k);
-          const ativa = cellAtiva && cellAtiva.row === r && cellAtiva.col === c;
-          const naPalavraAtiva = cellsAtivasSet.has(k);
-          const erro = erros[k];
+          const ativa = !revelado && cellAtiva && cellAtiva.row === r && cellAtiva.col === c;
+          const naPalavraAtiva = !revelado && cellsAtivasSet.has(k);
+          const erro = erros?.[k];
+          const erroOriginal = revelado && errosOriginais?.[k];
           const valor = cellChars[k] ?? '';
           const cls = ['celula', 'celula-letra'];
           if (ativa) cls.push('celula-ativa');
           else if (naPalavraAtiva) cls.push('celula-palavra');
           if (erro) cls.push('celula-erro');
+          if (erroOriginal) cls.push('celula-revelada-erro');
+          else if (revelado) cls.push('celula-revelada-ok');
           return (
             <button
               type="button"
               key={k}
               className={cls.join(' ')}
-              onClick={() => onSelecionarCelula(r, c)}
+              onClick={() => !revelado && onSelecionarCelula(r, c)}
+              disabled={revelado}
               aria-label={`linha ${r + 1} coluna ${c + 1}`}
             >
               {numero && <span className="celula-numero">{numero}</span>}

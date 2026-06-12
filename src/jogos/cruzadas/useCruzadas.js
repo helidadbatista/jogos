@@ -41,12 +41,18 @@ export function useCruzadas({ idade, dificuldade }) {
   const [palavraAtivaIdx, setPalavraAtivaIdx] = useState(0);
   const [posicaoAtiva, setPosicaoAtiva] = useState(0);
   const [erros, setErros] = useState({});
+  const [revelado, setRevelado] = useState(false);
+  const [errosOriginais, setErrosOriginais] = useState({});
+  const [corretasAoRevelar, setCorretasAoRevelar] = useState(0);
 
   useEffect(() => {
     setCellChars({});
     setPalavraAtivaIdx(0);
     setPosicaoAtiva(0);
     setErros({});
+    setRevelado(false);
+    setErrosOriginais({});
+    setCorretasAoRevelar(0);
   }, [cruzada]);
 
   const palavraAtiva = cruzada?.colocadas[palavraAtivaIdx] ?? null;
@@ -193,10 +199,39 @@ export function useCruzadas({ idade, dificuldade }) {
     return n;
   }, [cruzada, cellChars]);
 
+  const revelar = useCallback(() => {
+    if (!cruzada) return;
+    const novosChars = {};
+    const novosErros = {};
+    let corretas = 0;
+    for (let r = 0; r < cruzada.grade.length; r++) {
+      for (let c = 0; c < cruzada.grade[r].length; c++) {
+        const certa = cruzada.grade[r][c];
+        if (certa === null) continue;
+        const k = chave(r, c);
+        const digitada = cellChars[k];
+        novosChars[k] = certa;
+        if (digitada !== certa) {
+          novosErros[k] = true;
+        } else {
+          corretas++;
+        }
+      }
+    }
+    setCellChars(novosChars);
+    setErrosOriginais(novosErros);
+    setCorretasAoRevelar(corretas);
+    setErros({});
+    setRevelado(true);
+  }, [cruzada, cellChars]);
+
   return {
     cruzada,
     cellChars,
     erros,
+    errosOriginais,
+    revelado,
+    corretasAoRevelar,
     palavraAtivaIdx,
     palavraAtiva,
     cellAtiva,
@@ -206,6 +241,7 @@ export function useCruzadas({ idade, dificuldade }) {
     adicionarLetra,
     apagarLetra,
     verificar,
+    revelar,
     todasPreenchidas,
     totalCells,
     totalCorretas,

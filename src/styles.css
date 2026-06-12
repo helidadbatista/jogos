@@ -678,6 +678,26 @@ body.calmo .tela { animation: none !important; }
   border-color: var(--vermelho);
   color: var(--vermelho);
 }
+.celula-revelada-ok {
+  background: #ecfdf5;
+  border-color: var(--verde);
+  color: #047857;
+}
+.celula-revelada-erro {
+  background: #fef2f2;
+  border-color: var(--vermelho);
+  color: var(--vermelho);
+}
+.aviso-revelado {
+  text-align: center;
+  font-size: 14px;
+  color: var(--azul-escuro);
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin: 0;
+  width: 100%;
+}
 .celula-numero {
   position: absolute;
   top: 1px;

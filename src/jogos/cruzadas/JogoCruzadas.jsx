@@ -33,7 +33,12 @@ export default function JogoCruzadas({ idade, dificuldade, onVoltar, onFim }) {
   function desistir() {
     if (!confirm('Desistir da rodada e ver as respostas?')) return;
     sons.derrota();
-    onFim({ venceu: false, totalCells: j.totalCells, totalCorretas: j.totalCorretas });
+    j.revelar();
+  }
+
+  function continuarFim() {
+    sons.clique();
+    onFim({ venceu: false, totalCells: j.totalCells, totalCorretas: j.corretasAoRevelar });
   }
 
   useEffect(() => {
@@ -102,17 +107,34 @@ export default function JogoCruzadas({ idade, dificuldade, onVoltar, onFim }) {
         cruzada={j.cruzada}
         cellChars={j.cellChars}
         erros={j.erros}
+        errosOriginais={j.errosOriginais}
+        revelado={j.revelado}
         cellAtiva={j.cellAtiva}
         palavraAtiva={j.palavraAtiva}
         cellsDaPalavraAtiva={j.cellsDaPalavraAtiva}
         onSelecionarCelula={j.selecionarCelula}
       />
 
-      <Teclado modoLivre onLetra={handleLetra} onApagar={j.apagarLetra} />
+      {!j.revelado && (
+        <Teclado modoLivre onLetra={handleLetra} onApagar={j.apagarLetra} />
+      )}
 
       <div className="acoes-cruzadas">
-        <button className="botao-principal" onClick={verificar}>✅ Verificar</button>
-        <button className="botao-secundario" onClick={desistir}>🏳️ Desistir</button>
+        {!j.revelado ? (
+          <>
+            <button className="botao-principal" onClick={verificar}>✅ Verificar</button>
+            <button className="botao-secundario" onClick={desistir}>🏳️ Desistir</button>
+          </>
+        ) : (
+          <>
+            <p className="aviso-revelado">
+              {j.corretasAoRevelar === j.totalCells
+                ? '🎉 Você acertou todas! Confira a cruzadinha.'
+                : `Você acertou ${j.corretasAoRevelar} de ${j.totalCells}. As que erraram estão em vermelho.`}
+            </p>
+            <button className="botao-principal" onClick={continuarFim}>Continuar ➜</button>
+          </>
+        )}
       </div>
 
       <ListaDicas
